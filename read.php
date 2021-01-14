@@ -15,9 +15,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $req = $bdd->prepare("SELECT * FROM `ville` WHERE note >= '$temp'");
 $req->execute();
-$req->closeCursor();
+
 
 $tab = $req->fetchAll(PDO::FETCH_ASSOC);
+$req->closeCursor();
 
 ?>
 <h1> <?php echo count($tab) ?> résultats trouvés </h1>
